@@ -1,0 +1,27 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro package install fkill <args...>"
+  echo ""
+}
+
+core() {
+  if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    help
+    exit 0
+  fi
+
+  which fkill >>/dev/null 2>&1
+  if [ "$?" != "0" ]; then
+    pm::npm install -g fkill
+  fi
+
+  log::success "install fkill success."
+}
+
+run() {
+  core $@
+}
+
+run $@
