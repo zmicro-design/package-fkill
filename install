@@ -14,7 +14,7 @@ core() {
 
   which fkill >>/dev/null 2>&1
   if [ "$?" != "0" ]; then
-    pm::npm install -g fkill
+    pm::npm install -g fkill-cli
   fi
 
   log::success "install fkill success."
